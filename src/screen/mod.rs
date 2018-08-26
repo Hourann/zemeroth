@@ -8,12 +8,12 @@ use ZResult;
 
 mod battle;
 mod camp;
-mod campaign_menu;
+mod strategy;
 mod main_menu;
 
 pub use self::battle::Battle;
 pub use self::camp::Camp;
-pub use self::campaign_menu::CampaignMenu;
+pub use self::strategy::Strategy;
 pub use self::main_menu::MainMenu;
 
 #[derive(Debug)]

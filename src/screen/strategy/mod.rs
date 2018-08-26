@@ -41,7 +41,7 @@ impl Layers {
 }
 
 #[derive(Debug)]
-pub struct CampaignMenu {
+pub struct Strategy {
     font: graphics::Font,
     gui: Gui<Message>,
 
@@ -50,7 +50,7 @@ pub struct CampaignMenu {
     layers: Layers,
 }
 
-impl CampaignMenu {
+impl Strategy {
     pub fn new(context: &mut Context) -> ZResult<Self> {
         let font = Font::new(context, "/OpenSans-Regular.ttf", 32)?;
         let gui = make_gui(context, &font)?;
@@ -72,7 +72,7 @@ impl CampaignMenu {
     }
 }
 
-impl Screen for CampaignMenu {
+impl Screen for Strategy {
     fn update(&mut self, _context: &mut Context, dtime: Duration) -> ZResult<Transition> {
         self.scene.tick(dtime);
         Ok(Transition::None)
@@ -90,7 +90,7 @@ impl Screen for CampaignMenu {
 
     fn click(&mut self, context: &mut Context, pos: Point2) -> ZResult<Transition> {
         let message = self.gui.click(pos);
-        info!("CampaignMenu: click: pos={:?}, message={:?}", pos, message);
+        info!("StrategyScreen: click: pos={:?}, message={:?}", pos, message);
         match message {
             Some(Message::StartBattle) => {
                 let screen = screen::Battle::new(context)?;
