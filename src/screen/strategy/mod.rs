@@ -90,7 +90,10 @@ impl Screen for Strategy {
 
     fn click(&mut self, context: &mut Context, pos: Point2) -> ZResult<Transition> {
         let message = self.gui.click(pos);
-        info!("StrategyScreen: click: pos={:?}, message={:?}", pos, message);
+        info!(
+            "StrategyScreen: click: pos={:?}, message={:?}",
+            pos, message
+        );
         match message {
             Some(Message::StartBattle) => {
                 let screen = screen::Battle::new(context)?;
